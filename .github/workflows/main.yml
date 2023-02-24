@@ -1,6 +1,6 @@
 on: 
   push: 
-    branches: [ dev ] 
+    branches: [ main ]
     paths: 
     - 'main.py' 
     - 'apply_pylint.py' 
