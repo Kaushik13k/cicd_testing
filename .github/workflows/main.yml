@@ -34,7 +34,3 @@ jobs:
         test_main.py
         coverage run --source=. -m pytest
         coverage report -m
-
-#    - name: Run tests
-#        run: |
-#          pytest tests/
