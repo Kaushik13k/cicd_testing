@@ -1,4 +1,6 @@
-on: 
+name: CI/CD
+
+on:
   push: 
     branches: [ main ]
     paths: 
@@ -8,6 +10,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps: 
     - uses: actions/checkout@v2 
 
@@ -24,3 +27,14 @@ jobs:
     - name: Lint with pylint
       run: | 
         python apply_pylint.py
+
+  test:
+    - name: Run tests
+      run: |
+        test_main.py
+        coverage run --source=. -m pytest
+        coverage report -m
+
+#    - name: Run tests
+#        run: |
+#          pytest tests/
