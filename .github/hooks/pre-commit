@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+
+import os
+import sys
+import subprocess
+
+# Define the files to check
+file_types = ('.py',)
+
+# Define the commands to run
+flake8_command = 'flake8'
+autopep8_command = 'autopep8 -i'
+
+# Get the list of files to check
+changed_files = subprocess.check_output(['git', 'diff', '--cached', '--name-only', '--diff-filter=ACM']).decode().splitlines()
+
+# Check each file
+for filename in changed_files:
+    if filename.endswith(file_types):
+        # Run Flake8 to check for errors
+        flake8_result = subprocess.call([flake8_command, filename])
+        if flake8_result != 0:
+            print('Flake8 found errors in {}.'.format(filename))
+            sys.exit(1)
+        # Run autopep8 to format the code
+        subprocess.call([autopep8_command, filename])
+
+sys.exit(0)
