@@ -6,7 +6,7 @@ on:
     paths: 
     - 'main.py' 
     - 'apply_pylint.py'
-    - 'test_main.py'
+    - '/tests'
  
 jobs:
   build:
@@ -39,6 +39,6 @@ jobs:
       - name: Run tests
         run: |
           echo "Testing the Python Code!"
-          pytest -v tests/
+          python -m pytest -v tests/
           coverage run --source=. -m pytest
           coverage report -m
