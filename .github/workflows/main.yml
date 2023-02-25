@@ -39,6 +39,6 @@ jobs:
       - name: Run tests
         run: |
           echo "Testing the Python Code!"
-          python -m pytest -v tests/
+          python3 -m pytest -v tests/
           coverage run --source=. -m pytest
           coverage report -m
