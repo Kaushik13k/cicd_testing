@@ -5,7 +5,8 @@ on:
     branches: [ main ]
     paths: 
     - 'main.py' 
-    - 'apply_pylint.py' 
+    - 'apply_pylint.py'
+    - 'test_main.py'
  
 jobs:
   build:
@@ -29,6 +30,7 @@ jobs:
 
     - name: Lint with pylint
       run: | 
+        echo "Check Pylint!"
         python apply_pylint.py
 
   test:
@@ -38,6 +40,7 @@ jobs:
     steps:
       - name: Run tests
         run: |
+          echo "Testing the Python Code!"
           python test_main.py
           coverage run --source=. -m pytest
           coverage report -m
