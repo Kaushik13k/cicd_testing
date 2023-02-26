@@ -2,9 +2,17 @@ pipeline:
   agent:
     any:
   stages:
+    - stage: version
+      steps:
+        - sh 'python3 --version'
     - stage: Build
       steps:
-        - sh 'pip3 install numpy'
+        - sh 'python3 -m venv env'
+        - sh 'source env/bin/activate'
+        - sh 'pip3 install pytest'
+        - sh 'pip3 install pytest-cov'
+        - sh 'pip3 install coverage'
+        - sh 'pip3 install pylint'
     - stage: Test
       steps:
         - sh 'python3 apply_pylint.py'
