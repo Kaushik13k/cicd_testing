@@ -1,0 +1,44 @@
+# Define the pipeline
+name: my-pipeline
+
+# Define the stages in the pipeline
+stages:
+  - build
+  - test
+  - deploy
+
+# Define the jobs that make up each stage
+jobs:
+  # Build job
+  build:
+    stage: build
+    script:
+      - echo "Building application..."
+       python -m pip install --upgrade pip 
+       pip install pytest
+       pip install pytest-cov
+       pip install coverage
+       pip install pylint
+
+  # Test job
+  test:
+    stage: test
+    script:
+      - echo "Running tests..."
+        python apply_pylint.py
+
+
+  # Deploy job
+  deploy:
+    stage: deploy
+    script:
+      - echo "Deploying application..."
+
+# Define the environment variables to use throughout the pipeline
+variables:
+  ENVIRONMENT: production
+
+# Define the triggers for the pipeline
+# For example, trigger on changes to the main branch
+trigger:
+  branch: main
