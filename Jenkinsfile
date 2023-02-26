@@ -23,7 +23,6 @@ jobs:
       - echo "Running tests..."
         python apply_pylint.py
 
-
   deploy:
     stage: deploy
     script:
