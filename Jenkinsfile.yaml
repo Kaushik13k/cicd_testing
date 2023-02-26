@@ -24,7 +24,7 @@ jobs:
   deploy:
     stage: deploy
     script:
-      - sh 'Deploying application...'
+      sh 'Deploying application...'
 
 
 variables:
