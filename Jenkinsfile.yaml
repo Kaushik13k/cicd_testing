@@ -1,37 +1,3 @@
-#name: ci / cd
-#
-#stages:
-#  - build
-#  - test
-#  - deploy
-#
-#jobs:
-#  build:
-#    stage: build
-#    script:
-#       sh 'python3 -m pip install --upgrade pip'
-#       sh 'pip3 install pytest'
-#       sh 'pip3 install pytest-cov'
-#       sh 'pip3 install coverage'
-#       sh 'pip3 install pylint'
-#
-#
-#  test:
-#    stage: test
-#    script:
-#        sh 'python3 apply_pylint.py'
-#
-#  deploy:
-#    stage: deploy
-#    script:
-#      - echo "Deploying application..."
-#
-#
-#variables:
-#  ENVIRONMENT: production
-#
-#trigger:
-#  branch: main
 pipeline:
   agent:
     docker:
