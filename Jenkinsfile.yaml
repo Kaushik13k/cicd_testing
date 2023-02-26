@@ -9,19 +9,17 @@ jobs:
   build:
     stage: build
     script:
-      - echo "Building application..."
-       python -m pip install --upgrade pip 
-       pip install pytest
-       pip install pytest-cov
-       pip install coverage
-       pip install pylint
+       python3 -m pip install --upgrade pip 
+       pip3 install pytest
+       pip3 install pytest-cov
+       pip3 install coverage
+       pip3 install pylint
 
 
   test:
     stage: test
     script:
-      - echo "Running tests..."
-        python apply_pylint.py
+        python3 apply_pylint.py
 
   deploy:
     stage: deploy
