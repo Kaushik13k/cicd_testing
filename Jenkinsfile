@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'python -m venv env'
-                sh 'source env/bin/activate'
+//                 sh 'python -m venv env'
+//                 sh 'source env/bin/activate'
                 sh 'python -m pip install --upgrade pip'
                 sh 'pip install pytest'
                 sh 'pip install pytest-cov'
