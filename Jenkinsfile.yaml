@@ -15,7 +15,9 @@ pipeline:
         - sh 'pip3 install pylint'
     - stage: Test
       steps:
-        - sh 'python3 apply_pylint.py'
+        - sh 'python3 pytest -v tests'
+        - sh 'coverage run --source=. -m pytest'
+        - sh 'coverage report -m'
     - stage: Deploy
       steps:
         - sh 'echo "Deploying..."'
