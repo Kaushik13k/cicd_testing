@@ -16,8 +16,8 @@ pipeline:
     - stage: Test
       steps:
         - sh 'python3 -m pytest -v tests'
-        - sh 'coverage run --source=. -m pytest'
-        - sh 'coverage report -m'
+        - sh 'python3 -m coverage run --source=. -m pytest'
+        - sh 'python3 -m coverage report -m'
     - stage: Deploy
       steps:
         - sh 'echo "Deploying..."'
