@@ -6,7 +6,7 @@ on:
     paths: 
     - 'main.py' 
     - 'apply_pylint.py'
-    - 'tests'
+    - 'tests/'
 
 jobs:
   build:
