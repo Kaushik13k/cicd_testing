@@ -14,10 +14,10 @@ jobs:
 
     steps: 
     - uses: actions/checkout@v2
-    - name: Set up Python 3.8 
-      uses: actions/setup-python@v2 
-      with: 
-        python-version: 3.8 
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
 
     - name: Install dependencies 
       run: |
@@ -33,6 +33,13 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+
       - name: Install dependencies
         run: |
           pip install pytest
@@ -43,6 +50,6 @@ jobs:
         run: |
           python -c "import os; print(os.listdir())"
           echo "Testing the Python Code!"
-          pytest -v ./tests
+          pytest -v tests
           coverage run --source=. -m pytest
           coverage report -m
