@@ -11,18 +11,19 @@ pipeline:
       steps:
         - sh 'pip3 install pylint'
         - sh 'python3 apply_pylint.py'
-    - stage: Install Dependency
-      steps:
-        - sh 'python3 -m venv env'
-        - sh 'source env/bin/activate'
-        - sh 'pip3 install -r requirements.txt'
 
     - stage: Dependency Security Check
       steps:
         - sh 'pip3 install safety'
         - sh 'python3 -m safety check -r requirements.txt'
 
-
+    - stage: Install Dependency
+      steps:
+        - sh 'python3 -m venv env'
+        - sh 'source env/bin/activate'
+        - sh 'pip3 install pytest'
+        - sh 'pip3 install pytest-cov'
+        - sh 'pip3 install coverage'
 
 
     - stage: Test
