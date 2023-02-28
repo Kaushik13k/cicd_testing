@@ -9,7 +9,7 @@ pipeline:
 
     - stage: lint
       steps:
-        - sh 'python3 apply_pylint.py
+        - sh 'python3 apply_pylint.py'
 
     - stage: Dependency Security Check
       steps:
