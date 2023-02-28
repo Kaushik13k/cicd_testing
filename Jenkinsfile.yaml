@@ -14,6 +14,7 @@ pipeline:
 
     - stage: Dependency Security Check
       steps:
+        - sh 'ls'
         - sh 'pip3 install safety'
         - sh 'python3 -m safety check -r requirements.txt'
 
