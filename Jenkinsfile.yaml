@@ -5,6 +5,15 @@ pipeline:
     - stage: version
       steps:
         - sh 'python3 --version'
+#        - 'safety', 'check', '-r', 'requirements.txt'
+
+    - stage: lint
+      steps:
+        - sh 'python3 apply_pylint.py
+
+    - stage: Dependency Security Check
+      steps:
+        - sh 'safety check -r requirements.txt'
     - stage: Build
       steps:
         - sh 'python3 -m venv env'
@@ -13,9 +22,7 @@ pipeline:
         - sh 'pip3 install pytest-cov'
         - sh 'pip3 install coverage'
         - sh 'pip3 install pylint'
-    - stage: lint
-      steps:
-        - sh 'python3 apply_pylint.py'
+
     - stage: Test
       steps:
         - sh 'python3 -m pytest -v tests'
