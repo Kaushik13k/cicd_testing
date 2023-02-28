@@ -2,21 +2,21 @@ pipeline:
   agent:
     any:
   stages:
-    - stage: version
-      steps:
-        - sh 'python3 --version'
+#    - stage: version
+#      steps:
+#        - sh 'python3 --version'
 #        - 'safety', 'check', '-r', 'requirements.txt'
 
-    - stage: lint
-      steps:
-        - sh 'pip3 install pylint'
-        - sh 'python3 apply_pylint.py'
+#    - stage: lint
+#      steps:
+#        - sh 'pip3 install pylint'
+#        - sh 'python3 ./test-ci-cd/apply_pylint.py'
 
     - stage: Dependency Security Check
       steps:
-        - sh 'ls'
+#        - sh '
         - sh 'pip3 install safety'
-        - sh 'python3 -m safety check -r requirements.txt'
+        - sh 'python3 -m safety check -r ./test-ci-cd/requirements.txt'
 
     - stage: Install Dependency
       steps:
