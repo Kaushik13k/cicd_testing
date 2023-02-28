@@ -8,6 +8,7 @@ on:
     - 'main.py' 
     - 'apply_pylint.py'
     - 'tests/'
+    - 'requirements.txt'
 
 jobs:
   build:
