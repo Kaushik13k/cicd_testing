@@ -3,7 +3,7 @@ class Calculator:
 
     def add(self, num1, num2):
         """This  will
-        the addition of the two numbers"""
+        the addition of  two numbers"""
         return num1 + num2
 
     def subtract(self, num1, num2):
